@@ -1,0 +1,63 @@
+#N canvas 643 150 450 300 10;
+#X obj 19 37 sel 1;
+#X obj 121 133 soundfiler;
+#X msg 100 78 read -resize /home/juan/pd-externals/88BEAT13.wav array1
+;
+#X obj 147 22 openpanel;
+#X obj 147 4 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 149 45 set read -resize \$1 array1;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array array1 120844 float 2;
+#X coords 0 1 120844 -1 200 140 1;
+#X restore 230 134 graph;
+#X obj 16 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 18 220 tabread~ array1;
+#X obj 18 253 dac~;
+#X msg 130 219 set \$1;
+#X msg 69 183 120844;
+#X msg 87 103 2740.23;
+#X obj 77 127 +;
+#X obj 17 191 *~;
+#X obj 18 163 phasor~;
+#X msg 36 132 0;
+#X floatatom 37 109 5 0 0 0 - - -;
+#X obj 19 18 r b13;
+#X obj 106 262 snapshot~;
+#X obj 164 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 230 276 hsl 200 15 0 120844 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 656 1;
+#X obj 166 156 metro 5;
+#X obj 202 133 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 69 17 r et;
+#X obj 71 52 expr ($f1-128)/2048;
+#X connect 0 0 7 0;
+#X connect 1 0 10 0;
+#X connect 2 0 1 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 2 0;
+#X connect 7 0 12 0;
+#X connect 7 0 16 0;
+#X connect 8 0 9 0;
+#X connect 8 0 9 1;
+#X connect 10 0 11 0;
+#X connect 11 0 14 1;
+#X connect 12 0 13 1;
+#X connect 14 0 8 0;
+#X connect 14 0 19 0;
+#X connect 15 0 14 0;
+#X connect 16 0 15 1;
+#X connect 17 0 15 0;
+#X connect 17 0 20 0;
+#X connect 18 0 0 0;
+#X connect 19 0 21 0;
+#X connect 20 0 19 0;
+#X connect 22 0 20 0;
+#X connect 23 0 22 0;
+#X connect 24 0 25 0;
+#X connect 25 0 13 0;
+#X connect 25 0 17 0;

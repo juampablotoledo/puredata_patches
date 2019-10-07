@@ -1,0 +1,246 @@
+#N canvas 465 283 323 285 10;
+#N canvas 831 247 321 390 sampleuno 0;
+#X obj 9 195 phasor~;
+#X obj 9 214 *~;
+#X obj 91 92 sel 1 0;
+#X msg 48 176 0;
+#X msg 17 176 0;
+#X obj 9 92 f;
+#X obj 9 111 bondo;
+#X obj 9 274 tabread4~ t4;
+#X msg 16 254 set t47;
+#X msg 16 234 set set t\$1;
+#X obj 9 26 sel 0 1 2 3;
+#X obj 85 5 inlet;
+#X obj 123 5 inlet;
+#X obj 161 5 inlet;
+#N canvas 544 409 450 300 opencero 0;
+#X obj 35 68 openpanel;
+#X obj 35 48 inlet;
+#X obj 35 217 outlet;
+#X obj 35 111 bang;
+#X msg 35 134 read -resize /home/juan/pd-externals/samples/loops/faylan.wav
+t44;
+#X obj 219 52 inlet;
+#X obj 35 170 soundfiler;
+#X obj 219 187 f;
+#X obj 70 112 loadbang;
+#X msg 36 87 set read -resize \$1 t44;
+#X connect 0 0 9 0;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 2 0;
+#X connect 6 0 7 1;
+#X connect 7 0 2 0;
+#X connect 8 0 4 0;
+#X connect 9 0 4 0;
+#X connect 9 0 3 0;
+#X restore 9 70 pd opencero;
+#X obj 47 5 inlet;
+#X obj 9 332 outlet~;
+#N canvas 10 270 450 300 openuno 0;
+#X obj 45 78 openpanel;
+#X msg 45 144 read -resize /home/juan/pd-externals/samples/loops/tambora1.wav
+t45;
+#X obj 45 58 inlet;
+#X obj 45 191 outlet;
+#X obj 45 121 bang;
+#X obj 45 167 soundfiler;
+#X obj 229 62 inlet;
+#X obj 229 197 f;
+#X obj 89 121 loadbang;
+#X msg 45 97 set read -resize \$1 t45;
+#X connect 0 0 9 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 3 0;
+#X connect 5 0 7 1;
+#X connect 6 0 7 0;
+#X connect 7 0 3 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 9 0 4 0;
+#X restore 81 71 pd openuno;
+#N canvas 9 243 450 300 opendos 0;
+#X obj 45 78 openpanel;
+#X msg 45 144 read -resize /home/juan/pd-externals/samples/tips/DJuanPablo.wav
+t46;
+#X obj 45 58 inlet;
+#X obj 45 193 outlet;
+#X obj 45 121 bang;
+#X obj 45 170 soundfiler;
+#X obj 239 72 inlet;
+#X obj 239 207 f;
+#X obj 93 121 loadbang;
+#X msg 45 97 set read -resize \$1 t46;
+#X connect 0 0 9 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 3 0;
+#X connect 5 0 7 1;
+#X connect 6 0 7 0;
+#X connect 7 0 3 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 9 0 4 0;
+#X restore 148 71 pd opendos;
+#N canvas 9 243 450 300 opentres 0;
+#X obj 45 78 openpanel;
+#X msg 45 144 read -resize /home/juan/pd-externals/samples/tips/blanco.wav
+t47;
+#X obj 45 58 inlet;
+#X obj 45 192 outlet;
+#X obj 45 121 bang;
+#X obj 45 170 soundfiler;
+#X obj 249 82 inlet;
+#X obj 249 217 f;
+#X obj 91 123 loadbang;
+#X msg 45 97 set read -resize \$1 t47;
+#X connect 0 0 9 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 3 0;
+#X connect 5 0 7 1;
+#X connect 6 0 7 0;
+#X connect 7 0 3 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 9 0 4 0;
+#X restore 215 71 pd opentres;
+#X obj 64 255 bang;
+#X obj 89 27 sel 0 1 2 3;
+#X obj 73 120 + 44;
+#X obj 61 295 table t44;
+#X obj 124 295 table t45;
+#X obj 186 295 table t46;
+#X obj 247 295 table t47;
+#X obj 96 274 line~;
+#X obj 9 314 *~;
+#X msg 100 237 0 \, 1 50;
+#X msg 151 236 1 \, 0 50;
+#X obj 31 91 / 38137.8;
+#X obj 9 133 *;
+#X obj 9 158 / 44100;
+#X connect 0 0 1 0;
+#X connect 1 0 7 0;
+#X connect 2 0 3 0;
+#X connect 2 0 5 0;
+#X connect 2 0 29 0;
+#X connect 2 1 4 0;
+#X connect 2 1 30 0;
+#X connect 3 0 0 1;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 32 0;
+#X connect 6 1 32 1;
+#X connect 7 0 28 0;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X connect 9 0 20 0;
+#X connect 10 0 14 0;
+#X connect 10 1 17 0;
+#X connect 10 2 18 0;
+#X connect 10 3 19 0;
+#X connect 11 0 21 0;
+#X connect 11 0 22 0;
+#X connect 12 0 2 0;
+#X connect 13 0 31 0;
+#X connect 14 0 1 1;
+#X connect 14 0 5 1;
+#X connect 15 0 10 0;
+#X connect 17 0 1 1;
+#X connect 17 0 5 1;
+#X connect 18 0 1 1;
+#X connect 18 0 5 1;
+#X connect 19 0 1 1;
+#X connect 19 0 5 1;
+#X connect 20 0 8 0;
+#X connect 21 0 14 1;
+#X connect 21 1 17 1;
+#X connect 21 2 18 1;
+#X connect 21 3 19 1;
+#X connect 22 0 9 0;
+#X connect 27 0 28 1;
+#X connect 28 0 16 0;
+#X connect 29 0 27 0;
+#X connect 30 0 27 0;
+#X connect 31 0 6 1;
+#X connect 32 0 33 0;
+#X connect 33 0 0 0;
+#X restore -90 -94 pd sampleuno;
+#X obj -90 -156 vradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj -21 -151 r mey;
+#X obj -140 -92 counter;
+#X obj -209 -37 pow;
+#X floatatom -194 -55 5 0 0 0 - - -;
+#X obj -140 -135 metro;
+#X obj -140 -151 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj -209 -17 tabwrite peo;
+#N canvas 1 27 450 300 (subpatch) 0;
+#X array peo 256 float 3;
+#A 0 3.70635 7.97552 13.737 20.9437 29.5601 39.5581 50.9143 63.609
+77.6247 92.9463 109.56 127.454 146.616 167.037 188.706 211.616 235.757
+261.122 287.705 315.496 344.492 374.684 406.068 438.638 472.389 507.315
+543.411 580.674 619.098 658.679 699.413 741.295 784.323 828.492 873.799
+920.24 967.812 1016.51 1066.33 1117.28 1169.34 1222.52 1276.81 1332.21
+1388.71 1446.32 1505.03 1564.84 1625.75 1687.75 1750.84 1815.02 1880.29
+1946.64 2014.07 2082.59 2152.18 2222.85 2294.59 2367.41 2441.29 2516.25
+2592.27 2669.35 2747.5 2826.71 2906.98 2988.3 3070.69 3154.12 3238.61
+3324.15 3410.73 3498.37 3587.05 3676.78 3767.55 3859.36 3952.21 4046.1
+4141.03 4236.99 4333.99 4432.02 4531.08 4631.18 4732.3 4834.45 4937.63
+5041.83 5147.06 5253.31 5360.58 5468.87 5578.18 5688.51 5799.86 5912.22
+6025.6 6139.99 6255.39 6371.8 6489.23 6607.66 6727.1 6847.55 6969.01
+7091.47 7214.93 7339.4 7464.87 7591.34 7718.81 7847.28 7976.74 8107.21
+8238.67 8371.12 8504.57 8639.02 8774.45 8910.88 9048.3 9186.71 9326.11
+9466.49 9607.86 9750.22 9893.57 10037.9 10183.2 10329.5 10476.8 10625
+10774.3 10924.5 11075.7 11227.9 11381 11535.2 11690.3 11846.4 12003.4
+12161.5 12320.5 12480.4 12641.4 12803.3 12966.2 13130.1 13294.9 13460.7
+13627.4 13795.2 13963.9 14133.5 14304.1 14475.7 14648.3 14821.8 14996.3
+15171.7 15348.1 15525.5 15703.8 15883.1 16063.3 16244.5 16426.6 16609.7
+16793.8 16978.8 17164.8 17351.7 17539.6 17728.4 17918.2 18108.9 18300.6
+18493.2 18686.8 18881.3 19076.8 19273.2 19470.6 19668.9 19868.2 20068.4
+20269.6 20471.7 20674.7 20878.7 21083.6 21289.5 21496.3 21704.1 21912.8
+22122.4 22333 22544.5 22756.9 22970.3 23184.7 23399.9 23616.1 23833.3
+24051.4 24270.4 24490.3 24711.2 24933 25155.8 25379.4 25604 25829.6
+26056.1 26283.5 26511.8 26741.1 26971.3 27202.4 27434.4 27667.4 27901.3
+28136.2 28371.9 28608.6 28846.2 29084.8 29324.2 29564.6 29805.9 30048.2
+30291.3 30535.4 30780.4 31026.3 31273.2 31520.9 31769.6 32019.2 32269.8
+32521.2 32773.6 33026.9 33281.1 33536.2 33792.2 34049.2 34307 34565.8
+34825.5 35086.1 35347.7 35610.1 36137.8;
+#X coords 0 37000 256 0 200 140 1;
+#X restore -126 -49 graph;
+#X msg -140 -114 set 0;
+#X obj -21 -132 tabread peo;
+#X obj -209 -75 + 2;
+#X obj -140 -170 sel 256;
+#X obj -90 -73 outlet~;
+#X obj -67 -156 vradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj -21 -113 + 2000;
+#X obj -68 -181 inlet;
+#X connect 0 0 14 0;
+#X connect 1 0 0 0;
+#X connect 2 0 11 0;
+#X connect 3 0 8 1;
+#X connect 3 0 12 0;
+#X connect 3 0 13 0;
+#X connect 4 0 8 0;
+#X connect 5 0 4 1;
+#X connect 6 0 3 0;
+#X connect 7 0 6 0;
+#X connect 10 0 3 0;
+#X connect 11 0 16 0;
+#X connect 12 0 4 0;
+#X connect 13 0 7 0;
+#X connect 13 0 10 0;
+#X connect 15 0 0 1;
+#X connect 16 0 0 3;
+#X connect 17 0 15 0;
+#X connect 17 0 0 1;

@@ -1,0 +1,15 @@
+#N canvas 5 115 450 300 10;
+#X obj 101 133 gemwin;
+#X msg 101 79 0 \, destroy;
+#X obj 101 58 sel 0 1;
+#X obj 101 41 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 118 40 Pantallero;
+#X msg 101 100 border 0 \, dimen 640 480 \, cursor 0 \, menubar 0 \,
+offset 0 0 \, create \, 1;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 2 1 5 0;
+#X connect 3 0 2 0;
+#X connect 5 0 0 0;
+#X coords 0 -1 1 1 85 16 2 100 40;

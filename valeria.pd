@@ -1,0 +1,131 @@
+#N canvas 863 90 443 677 10;
+#X obj 98 64 pix_alpha;
+#X obj 98 26 alpha;
+#X obj 98 45 pix_video;
+#X obj 98 7 gemhead;
+#X obj 98 83 pix_texture;
+#X obj 98 102 rectangle 4 3;
+#X obj 14 -53 gemhead 2;
+#N canvas 4 108 450 300 control 0;
+#X obj 106 135 hsl 135 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 13400 1;
+#X obj 103 181 vsl 22 50 0 1 0 0 empty empty empty 0 -9 0 10 -258113
+-1 -1 2700 1;
+#X obj 94 296 outlet;
+#X obj 126 181 vsl 22 50 0 1 0 0 empty empty empty 0 -9 0 10 -4034
+-1 -1 4900 1;
+#X obj 149 181 vsl 22 50 0 1 0 0 empty empty empty 0 -9 0 10 -4160
+-1 -1 4900 1;
+#X obj 106 251 bondo 3;
+#X obj 94 271 pack f f f;
+#X obj 106 162 hsl 135 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 175 181 vsl 22 50 0 1 0 0 empty empty empty 0 -9 0 10 -258113
+-1 -1 0 1;
+#X obj 166 296 outlet;
+#X obj 198 181 vsl 22 50 0 1 0 0 empty empty empty 0 -9 0 10 -4034
+-1 -1 0 1;
+#X obj 221 181 vsl 22 50 0 1 0 0 empty empty empty 0 -9 0 10 -4160
+-1 -1 0 1;
+#X obj 174 262 bondo 3;
+#X obj 166 271 pack f f f;
+#X obj -7 246 outlet;
+#X obj 43 283 outlet;
+#X text 109 120 Color Seleccionado;
+#X text 109 147 Otros Colores;
+#X text 173 233 Umbral Bajo;
+#X text 102 233 Umbral Alto;
+#X connect 0 0 14 0;
+#X connect 1 0 5 0;
+#X connect 3 0 5 1;
+#X connect 4 0 5 2;
+#X connect 5 0 6 0;
+#X connect 5 1 6 1;
+#X connect 5 2 6 2;
+#X connect 6 0 2 0;
+#X connect 7 0 15 0;
+#X connect 8 0 12 0;
+#X connect 10 0 12 1;
+#X connect 11 0 12 2;
+#X connect 12 0 13 0;
+#X connect 12 1 13 1;
+#X connect 12 2 13 2;
+#X connect 13 0 9 0;
+#X coords 0 -1 1 1 145 150 1 100 100;
+#X restore 228 -86 pd control;
+#X obj 14 63 pix_film;
+#X obj 14 82 pix_texture;
+#X msg 21 4 open \$1;
+#X obj 21 -15 openpanel;
+#X obj 21 -32 bng 15 250 50 0 empty empty empty 17 7 0 10 -260097 -1
+-1;
+#X msg 21 42 auto 1;
+#X obj 21 23 t b;
+#X msg 68 63 0;
+#X obj 14 102 rectangle 4 3;
+#X msg 14 158 0 \, destroy;
+#X obj 14 196 gemwin 15;
+#X obj 14 139 sel 1;
+#X obj 14 122 tgl 15 0 empty empty empty 17 7 0 10 -159808 -1 -1 0
+1;
+#X text 315 176 Atencion!;
+#X text 38 -34 Carga el video de fondo;
+#X obj 14 -89 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X msg 14 -72 open \$1;
+#X text 135 -93 Selector de camara;
+#X text 32 121 Solo despues de arreglar todo enciende este suiche morado
+para ver elresultado en el videobeam o monitor externo;
+#X text 12 237 La ventana "pd control" sirve para los parametros de
+color y umbral del croma \, lo que necesitas es subir todo el "Color
+Seleccionado" y dejar en cero el "Otros Colores". Luego con "Umbral
+alto" vas a definir que colores y en que cantidad quieres que aparezcan
+\, los que dejes abajo son los que se desapareceran en mayor cantidad.
+El "Umbral Bajo" es preferible dejarlo con valores bajitos \, igual
+todo depende de las condiciones de luz y vas a tener darte duro segun
+el momento. Hay una caja que dice "Atencion!" a un lado \, de esta
+depende como se va a ver el video final. "border 0" significa que la
+ventana no va a tener ninguna identificacion ni botones para cerrarla
+\, minimizarla \, etc. "dimen 800 600" avisa que la ventana sera de
+800px por 600px \, esto es asi para ahorrar memoria y necesitas que
+el videobeam o el monitor externo este configurado a esa resolucion.
+"offset 1024 0" significa que tomando en cuenta el pixel mas alto y
+a la izquierda de tu monitor principal (0 \, 0) \, el video aparecera
+a una distancia hacia la derecha de 1024px \, el cero que le sigue
+determina que no habra diferencia en el eje Y \, ese 1024 lo debes
+cambiar por el valor de la resolucion total de tu pantalla pincipal
+\, de modo que si tienes un monitor de 1280px de resolucion horizontal
+\, tu coloques ese valor de "offset" para que el video se desplace
+fuera de tu monitor principal hacia el otro monitor o video beam. Para
+cambiar los valores usa Ctl+E \, el cursor debe ponerse como una mano.
+;
+#X text 215 69 Cualquier mielda me llamas Besitos!;
+#X msg 14 177 border 0 \, dimen 800 600 \, offset 0 0 \, create \,
+1;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 6 0 8 0;
+#X connect 7 0 0 1;
+#X connect 7 1 0 2;
+#X connect 7 2 0 3;
+#X connect 7 3 0 4;
+#X connect 8 0 9 0;
+#X connect 8 2 15 0;
+#X connect 9 0 16 0;
+#X connect 10 0 8 0;
+#X connect 10 0 14 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 8 0;
+#X connect 14 0 13 0;
+#X connect 15 0 8 1;
+#X connect 17 0 18 0;
+#X connect 19 0 29 0;
+#X connect 19 1 17 0;
+#X connect 20 0 19 0;
+#X connect 23 0 24 0;
+#X connect 24 0 8 0;
+#X connect 29 0 18 0;

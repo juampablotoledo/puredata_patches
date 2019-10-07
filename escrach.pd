@@ -1,0 +1,30 @@
+#N canvas 140 165 450 466 10;
+#X obj 60 214 soundfiler;
+#X obj 63 56 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 145 127 openpanel;
+#X msg 62 115 set read -resize \$1 array1;
+#X msg 68 148 read -resize /home/juan/pd-externals/samples/tips/hamburguesa.wav
+array1;
+#X obj 56 256 r tex;
+#X floatatom 57 287 5 0 0 0 - - -;
+#X obj 30 440 dac~;
+#X obj 75 333 mtof;
+#X obj 55 398 *~;
+#X obj 81 355 phasor~;
+#X obj 56 305 expr (($f1/32747)*127)+0;
+#X obj 167 365 r tep;
+#X obj 152 403 / 1023;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 11 0;
+#X connect 8 0 10 0;
+#X connect 9 0 7 0;
+#X connect 9 0 7 1;
+#X connect 10 0 9 0;
+#X connect 11 0 8 0;
+#X connect 12 0 13 0;
+#X connect 13 0 9 1;
